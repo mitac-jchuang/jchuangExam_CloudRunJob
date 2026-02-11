@@ -1,0 +1,3 @@
+google-cloud-storage==3.4.0
+google-cloud-bigquery==3.37.0
+google-cloud-logging==3.12.1
