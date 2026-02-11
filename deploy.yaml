@@ -16,6 +16,7 @@ steps:
     timeout: 1200s
     args: ['run', 'jobs',
            'deploy',
+           '$_SERVICE_NAME',
            '--image',
            '$_AR_HOSTNAME/$PROJECT_ID/$_AR_REPO/$_SERVICE_NAME:$COMMIT_SHA', 
            '--region',
