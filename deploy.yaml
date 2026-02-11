@@ -10,5 +10,16 @@ steps:
     args: ['push', 
            '$_AR_HOSTNAME/$PROJECT_ID/$_AR_REPO/$_SERVICE_NAME:$COMMIT_SHA']
 
+  # Deploy image to Cloud Run Job
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
+    timeout: 1200s
+    args: ['run', 'jobs',
+           'deploy',
+           '--image',
+           '$_AR_HOSTNAME/$PROJECT_ID/$_AR_REPO/$_SERVICE_NAME:$COMMIT_SHA', 
+           '--region',
+           'asia-east1']
+
 options:
   logging: CLOUD_LOGGING_ONLY
