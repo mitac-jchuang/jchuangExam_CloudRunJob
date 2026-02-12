@@ -1,6 +1,10 @@
 # Use the official Python base image
 FROM python:3.11-slim
 
+# Define a build-time argument. This can be set with --build-arg
+ARG PROJECT_ID
+ARG BRONZE_BUCKET
+
 # Set the working directory inside the container
 WORKDIR /app
 RUN mkdir /env
