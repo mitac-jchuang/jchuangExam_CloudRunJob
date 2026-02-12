@@ -17,8 +17,8 @@ COPY . .
 EXPOSE 8080
 
 # Define environment variable
-ENV PROJECT_ID $PROJECT_ID
-ENV BRONZE_BUCKET $BRONZE_BUCKET
+ENV PROJECT_ID=$PROJECT_ID
+ENV BRONZE_BUCKET=$BRONZE_BUCKET
 
 # Run the FastAPI application using uvicorn server
 #CMD ["python", "main.py"]
