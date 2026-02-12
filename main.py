@@ -13,8 +13,10 @@ if __name__ == "__main__":
     print(f"Test Run start at {start_time}")
     #logging.info(f"Test Run start at {start_time}")
     
-    print(f'{os.getenv("PROJECT_ID")}')
-    print(f'{os.getenv("BRONZE_BUCKET")}')
+    project=os.getenv("PROJECT_ID")
+    print(f'project_name: {project}')
+    bucket_name=os.getenv("BRONZE_BUCKET") 
+    print(f'bucket_name: {bucket_name}')
     
     if len(sys.argv) > 1:
         print(f"Received input parameter: {sys.argv[1]}")
