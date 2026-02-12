@@ -7,11 +7,11 @@ This project is aims to exam the CI/CD process of cloud run jobs.
 
 ## Run with input parameters
 ```
-gcloud run jobs execute JOB_NAME --args="your_argument_value"
+gcloud run jobs execute JOB_NAME --region="asia-east1" --args="your_argument_value"
 # For multiple arguments:
-gcloud run jobs execute JOB_NAME --args="arg1","arg2","arg3"
+gcloud run jobs execute JOB_NAME --region="asia-east1" --args="arg1","arg2","arg3"
 # 如要讓指令等待執行完成，請使用
-gcloud run jobs execute JOB_NAME --wait --region=REGION
+gcloud run jobs execute JOB_NAME --wait --region="asia-east1"
 ```
 
 ## Call a existing job and overwrite env (Python)
