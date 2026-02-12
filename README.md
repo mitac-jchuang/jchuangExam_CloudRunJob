@@ -14,35 +14,18 @@ gcloud run jobs execute JOB_NAME --region="asia-east1" --args="arg1","arg2","arg
 gcloud run jobs execute JOB_NAME --wait --region="asia-east1"
 ```
 
-## Call a existing job and overwrite env (Python)
+## Call a existing job with parameters (Python)
 ```
-from google.cloud import run_v2
+from google.cloud.run_v2.services import jobs
+from google.cloud.run_v2 import RunJobRequest
 
-client = run_v2.JobsClient()
-job_path = client.job_path("project", 'region', 'cloud-run-job_name')
+client = jobs.JobsClient()
+job_path = client.job_path('project_id', 'asia-east1', 'cloudRunJobs_name')
 
-# Giving the enviroment variable list in dictionary
-env_data = {
-    "file_dir": "filename"
-}
+container_override = RunJobRequest.Overrides.ContainerOverride(args=['paramter_passed_by_python'])
+overrides = RunJobRequest.Overrides(container_overrides=[container_override])
 
-# Create the list of EnvVar objects from the dictionary
-overridden_env_vars = [
-    run_v2.EnvVar(name=name, value=value)
-    for name, value in env_data.items()
-]
-
-# Create the RunJobRequest with the overrides
-request = run_v2.RunJobRequest(
-    name=job_path,
-    overrides=run_v2.RunJobRequest.Overrides(
-        container_overrides=[
-            run_v2.RunJobRequest.Overrides.ContainerOverride(
-                env=overridden_env_vars
-            )
-        ]
-    )
-)
+request = RunJobRequest(name=job_path, overrides=overrides)
 
 try:
     operation = client.run_job(request=request)
