@@ -18,8 +18,8 @@ if __name__ == "__main__":
     logging.info(f"project_name: {project}")
     
     bucket_name=os.getenv("BRONZE_BUCKET") 
-    #print(f'bucket_name: {bucket_name}')
-    logging.info(f"bucket_name: {bucket_name}")
+    print(f'bucket_name: {bucket_name}')
+    #logging.info(f"bucket_name: {bucket_name}")
     
     if len(sys.argv) > 1:
         #print(f"Received input parameter: {sys.argv[1]}")
