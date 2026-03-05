@@ -3,7 +3,8 @@
 This project is aims to exam the CI/CD process of cloud run jobs.
 
 ## Deploy Manually
-
+Cloud Build repostory: 設定連結github
+Cloud Build trigger:   設定trigger
 
 ## Run with input parameters
 ```
